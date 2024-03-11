@@ -14,4 +14,15 @@ router.get('/', (req, res) => {
     .then(marvels => res.json(marvels))
 });
 
+// @route   POST api/marvel
+// @desk    Create A Post 
+// @access  Public
+router.post('/', (req, res) => {
+  const newmarvel = new marvel({
+    name: req.body.name
+  });
+
+  newmarvel.save().then(marvels => res.json(marvels));
+});
+
 module.exports = router; 
